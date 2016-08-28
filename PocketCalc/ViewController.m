@@ -52,11 +52,11 @@
     if ([newValue isEqualToString: @"NAN"] == NO && [newValue isEqualToString: @"CLEAR"] == NO) {
         if ([newValue isEqualToString: @"⁺∕₋"] == YES) {
             if ([self.signDisplay.text isEqualToString: @""] == YES) {
-                self.calc.firstOperand = self.display.text.integerValue;
+                self.calc.firstOperand = self.calc.firstOperand * -1;
                 self.display.text = [NSString stringWithFormat:@"%@", @(self.calc.firstOperand)];
 
             } else {
-                self.calc.secondOperand = self.display.text.integerValue;
+                self.calc.secondOperand = self.calc.secondOperand * -1;
                 self.display.text = [NSString stringWithFormat:@"%@", @(self.calc.secondOperand)];
             }
             

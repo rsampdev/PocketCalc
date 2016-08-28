@@ -10,7 +10,6 @@
 
 @interface Calculator : NSObject
 
-@property (nonatomic) NSInteger * result;
 @property (nonatomic) NSInteger firstOperand;
 @property (nonatomic) NSInteger secondOperand;
 @property (nonatomic) NSString * sign;
