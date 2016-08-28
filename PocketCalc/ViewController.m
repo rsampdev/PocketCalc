@@ -26,6 +26,8 @@
 
 - (IBAction)setSign:(UIButton *)sender;
 
+- (IBAction)convertToPositiveOrNegative:(UIButton *)sender;
+
 - (IBAction)clearAndAllClear:(UIButton *)sender;
 
 - (IBAction)calculateResult:(UIButton *)sender;
@@ -48,7 +50,17 @@
 
 - (IBAction)updateDisplay:(NSString *)newValue {
     if ([newValue isEqualToString: @"NAN"] == NO && [newValue isEqualToString: @"CLEAR"] == NO) {
-        if ([self.signDisplay.text isEqualToString: @""] == YES) {
+        if ([newValue isEqualToString: @"⁺∕₋"] == YES) {
+            if ([self.signDisplay.text isEqualToString: @""] == YES) {
+                self.calc.firstOperand = self.display.text.integerValue;
+                self.display.text = [NSString stringWithFormat:@"%@", @(self.calc.firstOperand)];
+
+            } else {
+                self.calc.secondOperand = self.display.text.integerValue;
+                self.display.text = [NSString stringWithFormat:@"%@", @(self.calc.secondOperand)];
+            }
+            
+        } else if ([self.signDisplay.text isEqualToString: @""] == YES) {
             self.display.text = [NSString stringWithFormat:@"%@%@", self.display.text, newValue];
             self.calc.firstOperand = [NSString stringWithFormat:@"%@%@", @(self.calc.firstOperand), newValue].integerValue;
         } else {
@@ -84,6 +96,19 @@
     self.calc.secondOperand = 0;
     [self.display setText:@""];
     [self.signDisplay setText: [NSString stringWithFormat: @"%@", sender.currentTitle]];
+}
+
+- (IBAction)convertToPositiveOrNegative:(UIButton *)sender {
+    
+    BOOL isNegative = [self.display.text containsString:@"-"];
+    
+    if (isNegative == NO) {
+        self.display.text = [NSString stringWithFormat:@"%@%@", @"-", self.display.text];
+    } else if (isNegative == YES) {
+        self.display.text = [self.display.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    }
+
+    [self updateDisplay:@"⁺∕₋"];
 }
 
 - (IBAction)clearAndAllClear:(UIButton *)sender {
