@@ -54,12 +54,10 @@
             if ([self.signDisplay.text isEqualToString: @""] == YES) {
                 self.calc.firstOperand = self.calc.firstOperand * -1;
                 self.display.text = [NSString stringWithFormat:@"%@", @(self.calc.firstOperand)];
-
             } else {
                 self.calc.secondOperand = self.calc.secondOperand * -1;
                 self.display.text = [NSString stringWithFormat:@"%@", @(self.calc.secondOperand)];
             }
-            
         } else if ([self.signDisplay.text isEqualToString: @""] == YES) {
             self.display.text = [NSString stringWithFormat:@"%@%@", self.display.text, newValue];
             self.calc.firstOperand = [NSString stringWithFormat:@"%@%@", @(self.calc.firstOperand), newValue].integerValue;
@@ -117,6 +115,7 @@
         self.signDisplay.text = @"";
     } else if([sender.currentTitle isEqualToString: @"C"] == YES) {
         [self.calc clear];
+        [self.clearAndAllClearButton setTitle:@"AC" forState:UIControlStateNormal];
     }
     
     [self updateDisplay:@"CLEAR"];
