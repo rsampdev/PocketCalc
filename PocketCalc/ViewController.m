@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) IBOutlet UILabel * display;
 
-@property (nonatomic, strong) IBOutlet UILabel * signDisplay;
+@property (nonatomic, strong) UIButton * signButton;
 
 @property (nonatomic, strong) IBOutlet UIButton * clearAndAllClearButton;
 
@@ -41,7 +41,7 @@
     
     self.calc = [[Calculator alloc] init];
     self.display.adjustsFontSizeToFitWidth = true;
-    //[self.clearAndAllClearButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
+    self.signButton = [[UIButton alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,14 +51,14 @@
 - (IBAction)updateDisplay:(NSString *)newValue {
     if ([newValue isEqualToString: @"NAN"] == NO && [newValue isEqualToString: @"CLEAR"] == NO) {
         if ([newValue isEqualToString: @"⁺∕₋"] == YES) {
-            if ([self.signDisplay.text isEqualToString: @""] == YES) {
+            if ([self.calc.sign isEqualToString: @""] == YES) {
                 self.calc.firstOperand = self.calc.firstOperand * -1;
                 self.display.text = [NSString stringWithFormat:@"%@", @(self.calc.firstOperand)];
             } else {
                 self.calc.secondOperand = self.calc.secondOperand * -1;
                 self.display.text = [NSString stringWithFormat:@"%@", @(self.calc.secondOperand)];
             }
-        } else if ([self.signDisplay.text isEqualToString: @""] == YES) {
+        } else if ([self.calc.sign isEqualToString: @""] == YES) {
             self.display.text = [NSString stringWithFormat:@"%@%@", self.display.text, newValue];
             self.calc.firstOperand = [NSString stringWithFormat:@"%@%@", @(self.calc.firstOperand), newValue].integerValue;
         } else {
@@ -81,23 +81,25 @@
 }
 
 - (IBAction)setSign:(UIButton *)sender {
-    if ([sender.currentTitle isEqualToString: @"+"]) {
-        [self.calc setMathSign:@"+"];
-    } else if ([sender.currentTitle isEqualToString: @"-"]) {
-        [self.calc setMathSign:@"-"];
+    [self.signButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
+    self.signButton.backgroundColor = [UIColor whiteColor];
+    
+    if ([sender.currentTitle isEqualToString: @"÷"]) {
+        [self.calc setMathSign:@"/"];
     } else if ([sender.currentTitle isEqualToString: @"×"]) {
         [self.calc setMathSign:@"*"];
-    } else if ([sender.currentTitle isEqualToString: @"÷"]) {
-        [self.calc setMathSign:@"/"];
+    } else {
+        [self.calc setMathSign:sender.currentTitle];
     }
     
+    self.signButton = sender;
+    [self.signButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
+    self.signButton.backgroundColor = [UIColor blackColor];
     self.calc.secondOperand = 0;
     [self.display setText:@""];
-    [self.signDisplay setText: [NSString stringWithFormat: @"%@", sender.currentTitle]];
 }
 
 - (IBAction)convertToPositiveOrNegative:(UIButton *)sender {
-    
     BOOL isNegative = [self.display.text containsString:@"-"];
     
     if (isNegative == NO) {
@@ -105,14 +107,14 @@
     } else if (isNegative == YES) {
         self.display.text = [self.display.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     }
-
+    
     [self updateDisplay:@"⁺∕₋"];
 }
 
 - (IBAction)clearAndAllClear:(UIButton *)sender {
     if ([sender.currentTitle isEqualToString: @"AC"] == YES) {
         [self.calc allClear];
-        self.signDisplay.text = @"";
+        self.calc.sign = @"";
     } else if([sender.currentTitle isEqualToString: @"C"] == YES) {
         [self.calc clear];
         [self.clearAndAllClearButton setTitle:@"AC" forState:UIControlStateNormal];
@@ -145,15 +147,15 @@
         self.display.text = @"";
         self.calc.firstOperand = calculationResult;
         
-        if ([self.signDisplay.text isEqualToString: @"÷"] && calculationResult == 0) {
+        if ([self.calc.sign isEqualToString: @"/"] && calculationResult == 0) {
             [self updateDisplay:@"NAN"];
         } else {
             [self.display setText:[NSString stringWithFormat:@"%@", @(calculationResult)]];
         }
         
         [self.clearAndAllClearButton setTitle:@"AC" forState:UIControlStateNormal];
-        
-        self.signDisplay.text = @"";
+        [self.signButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
+        self.signButton.backgroundColor = [UIColor whiteColor];
     }
 }
 

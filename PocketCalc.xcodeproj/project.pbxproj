@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		333015F71D6F6F8900AF5C50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 333015F61D6F6F8900AF5C50 /* main.m */; };
 		333015FA1D6F6F8900AF5C50 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 333015F91D6F6F8900AF5C50 /* AppDelegate.m */; };
-		333015FD1D6F6F8900AF5C50 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333015FC1D6F6F8900AF5C50 /* ViewController.m */; };
-		333016001D6F6F8900AF5C50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333015FE1D6F6F8900AF5C50 /* Main.storyboard */; };
 		333016021D6F6F8900AF5C50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333016011D6F6F8900AF5C50 /* Assets.xcassets */; };
 		333016051D6F6F8900AF5C50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333016031D6F6F8900AF5C50 /* LaunchScreen.storyboard */; };
 		333016101D6F6F8A00AF5C50 /* PocketCalcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3330160F1D6F6F8A00AF5C50 /* PocketCalcTests.m */; };
 		3330161B1D6F6F8A00AF5C50 /* PocketCalcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3330161A1D6F6F8A00AF5C50 /* PocketCalcUITests.m */; };
 		333016691D6F9B5200AF5C50 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 333016681D6F9B5200AF5C50 /* Calculator.m */; };
+		337CBC371D7E55AD00451552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 337CBC361D7E55AD00451552 /* Main.storyboard */; };
+		337CBC391D7E55F800451552 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 337CBC381D7E55F800451552 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,6 @@
 		333015F81D6F6F8900AF5C50 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		333015F91D6F6F8900AF5C50 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		333015FB1D6F6F8900AF5C50 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		333015FC1D6F6F8900AF5C50 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; usesTabs = 0; };
-		333015FF1D6F6F8900AF5C50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		333016011D6F6F8900AF5C50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		333016041D6F6F8900AF5C50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		333016061D6F6F8900AF5C50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +52,8 @@
 		3330161C1D6F6F8A00AF5C50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		333016671D6F9B5200AF5C50 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
 		333016681D6F9B5200AF5C50 /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
+		337CBC361D7E55AD00451552 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		337CBC381D7E55F800451552 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +104,11 @@
 		333015F41D6F6F8900AF5C50 /* PocketCalc */ = {
 			isa = PBXGroup;
 			children = (
+				337CBC381D7E55F800451552 /* ViewController.m */,
+				337CBC361D7E55AD00451552 /* Main.storyboard */,
 				333015F81D6F6F8900AF5C50 /* AppDelegate.h */,
 				333015F91D6F6F8900AF5C50 /* AppDelegate.m */,
 				333015FB1D6F6F8900AF5C50 /* ViewController.h */,
-				333015FC1D6F6F8900AF5C50 /* ViewController.m */,
-				333015FE1D6F6F8900AF5C50 /* Main.storyboard */,
 				333016011D6F6F8900AF5C50 /* Assets.xcassets */,
 				333016031D6F6F8900AF5C50 /* LaunchScreen.storyboard */,
 				333016061D6F6F8900AF5C50 /* Info.plist */,
@@ -251,9 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				337CBC371D7E55AD00451552 /* Main.storyboard in Resources */,
 				333016051D6F6F8900AF5C50 /* LaunchScreen.storyboard in Resources */,
 				333016021D6F6F8900AF5C50 /* Assets.xcassets in Resources */,
-				333016001D6F6F8900AF5C50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,9 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				333015FD1D6F6F8900AF5C50 /* ViewController.m in Sources */,
 				333016691D6F9B5200AF5C50 /* Calculator.m in Sources */,
 				333015FA1D6F6F8900AF5C50 /* AppDelegate.m in Sources */,
+				337CBC391D7E55F800451552 /* ViewController.m in Sources */,
 				333015F71D6F6F8900AF5C50 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,14 +317,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		333015FE1D6F6F8900AF5C50 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				333015FF1D6F6F8900AF5C50 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		333016031D6F6F8900AF5C50 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
